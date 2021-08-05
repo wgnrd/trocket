@@ -1,9 +1,8 @@
 import { gql } from '@apollo/client';
 
-// TODO: make launch limit variable
 export const LOAD_LAUNCHES = gql`
-  query {
-    launchesPast(limit: 4) {
+  query launchesPast($limit: Int!) {
+    launchesPast(limit: $limit) {
       id
       mission_name
       launch_date_utc
