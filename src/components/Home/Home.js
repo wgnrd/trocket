@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { LOAD_LAUNCHES } from '../graphQl/Queries';
+import { LOAD_LAUNCHES } from '../../graphQl/Queries';
 
 function Home() {
   const { data, loading, error } = useQuery(LOAD_LAUNCHES, {
