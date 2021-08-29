@@ -20,3 +20,12 @@ export const LOAD_LAUNCHES = gql`
     }
   }
 `;
+
+export const COUNTRY_BY_CODE = gql`
+  query countryByCode($code: String!) {
+    countries(where: { alpha3Code: { eq: "AUT" } }) {
+      id
+      name
+    }
+  }
+`;

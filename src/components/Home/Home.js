@@ -1,10 +1,10 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { LOAD_LAUNCHES } from '../../graphQl/Queries';
+import { COUNTRY_BY_CODE } from '../../graphQl/Queries';
 
 function Home() {
-  const { data, loading, error } = useQuery(LOAD_LAUNCHES, {
-    variables: { limit: 4 },
+  const { data, loading, error } = useQuery(COUNTRY_BY_CODE, {
+    // variables: { limit: 4 },
   });
 
   if (loading) return <h1>Loading...</h1>;
@@ -12,17 +12,17 @@ function Home() {
 
   return (
     <div>
-      {data.launchesPast.map((launch) => (
-        <div key={launch.id}>
+      {data.countries.map((country) => (
+        <div key={country.id}>
           <h2>Launch</h2>
           <p>
             <b>Name: </b>
-            {launch.mission_name}
+            {country.name}
           </p>
-          <p>
+          {/* <p>
             <b>Time: </b>
-            {launch.launch_date_utc.toString()}
-          </p>
+            {country.launch_date_utc.toString()}
+          </p> */}
         </div>
       ))}
     </div>
