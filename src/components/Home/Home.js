@@ -4,7 +4,7 @@ import { COUNTRY_BY_CODE } from '../../graphQl/Queries';
 
 function Home() {
   const { data, loading, error } = useQuery(COUNTRY_BY_CODE, {
-    // variables: { limit: 4 },
+    variables: { code: 'HU' },
   });
 
   if (loading) return <h1>Loading...</h1>;
@@ -14,15 +14,11 @@ function Home() {
     <div>
       {data.countries.map((country) => (
         <div key={country.id}>
-          <h2>Launch</h2>
+          <h2>{country.__typename}</h2>
           <p>
             <b>Name: </b>
             {country.name}
           </p>
-          {/* <p>
-            <b>Time: </b>
-            {country.launch_date_utc.toString()}
-          </p> */}
         </div>
       ))}
     </div>

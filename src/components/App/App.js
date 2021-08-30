@@ -21,8 +21,7 @@ const errorLink = onError(({ graphqlErrors, networkError }) => {
 const link = from([
   errorLink,
   new HttpLink({
-    uri: `https://api.everbase.co/graphql?apikey=
-    ${process.env.EVERBASE_API_KEY}`,
+    uri: `https://api.everbase.co/graphql?apikey=${process.env.REACT_APP_EVERBASE_API_KEY}`,
   }),
 ]);
 
@@ -34,7 +33,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <h1>Launches</h1>
+      <h1>GraphQL Country Client</h1>
       <Home />
     </ApolloProvider>
   );
