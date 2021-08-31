@@ -1,22 +1,10 @@
 import { gql } from '@apollo/client';
 
-export const LOAD_LAUNCHES = gql`
-  query launchesPast($limit: Int!) {
-    launchesPast(limit: $limit) {
+export const COUNTRY_BY_CODE = gql`
+  query countryByCode($code: String!) {
+    countries(where: { alpha2Code: { eq: $code } }) {
       id
-      mission_name
-      launch_date_utc
-      launch_site {
-        site_name_long
-        site_name
-      }
-      links {
-        article_link
-        video_link
-      }
-      rocket {
-        rocket_name
-      }
+      name
     }
   }
 `;
