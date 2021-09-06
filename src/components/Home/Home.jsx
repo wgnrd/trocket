@@ -5,17 +5,17 @@ import { COUNTRY_BY_CODE } from '../../graphQl/Queries';
 import { useState } from 'react';
 
 function Home() {
-  const [searchKey, setSearchKey] = useState('hu');
+  const [searchKey, setSearchKey] = useState('AT');
 
   const { data, loading, error, refetch } = useQuery(COUNTRY_BY_CODE, {
     variables: { code: searchKey },
   });
 
   const onSearchChange = (event) => {
-    setSearchKey(event.target.value);
-    console.log(`refetch with ${event.target.value}`);
+    if (event.target.value.length < 2) return;
+
+    setSearchKey(event.target.value.toUpperCase());
     refetch();
-    console.log(data);
   };
 
   // if (loading) return <h1>Loading...</h1>;
