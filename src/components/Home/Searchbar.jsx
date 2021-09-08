@@ -20,8 +20,10 @@ const Searchbar = ({ onChange }) => {
   // if the value of input field is undefined, prefill it with the countrycode of the client,
   // this also triggers the first query of the country itself in another component
   if (value === undefined) {
-    setValue(data.client.ipAddress.country.alpha2Code.toUpperCase());
-    onChange(data.client.ipAddress.country.alpha2Code.toUpperCase());
+    const initSearchCode =
+      data.client.ipAddress.country.alpha2Code.toUpperCase();
+    setValue(initSearchCode);
+    onChange(initSearchCode);
   }
 
   return (
