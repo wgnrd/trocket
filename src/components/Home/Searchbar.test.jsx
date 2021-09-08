@@ -1,8 +1,13 @@
 import { render, screen } from '@testing-library/react';
+import { MockedProvider } from '@apollo/client/testing';
 import Searchbar from './Searchbar';
 
 test('renders searchbar', () => {
-  render(<Searchbar />);
-  const linkElement = screen.getByPlaceholderText('Top level domain');
+  render(
+    <MockedProvider>
+      <Searchbar />
+    </MockedProvider>
+  );
+  const linkElement = screen.getByPlaceholderText('e.g. RU');
   expect(linkElement).toBeInTheDocument();
 });
