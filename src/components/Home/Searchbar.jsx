@@ -21,6 +21,7 @@ const Searchbar = ({ onChange }) => {
   // this also triggers the first query of the country itself in another component
   if (value === undefined) {
     setValue(data.client.ipAddress.country.alpha2Code.toUpperCase());
+    onChange(data.client.ipAddress.country.alpha2Code.toUpperCase());
   }
 
   return (
