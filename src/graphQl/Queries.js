@@ -8,3 +8,15 @@ export const COUNTRY_BY_CODE = gql`
     }
   }
 `;
+
+export const CLIENT_COUNTRY_CODE = gql`
+  query {
+    client {
+      ipAddress {
+        country {
+          alpha2Code
+        }
+      }
+    }
+  }
+`;
