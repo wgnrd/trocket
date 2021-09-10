@@ -5,6 +5,21 @@ export const COUNTRY_BY_CODE = gql`
     countries(where: { alpha2Code: { eq: $code } }) {
       id
       name
+      population
+      capital {
+        name
+      }
+      continent {
+        name
+      }
+      currencies {
+        id
+        name
+        unitSymbols
+      }
+      languages {
+        name
+      }
     }
   }
 `;

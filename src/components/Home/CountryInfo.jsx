@@ -6,7 +6,6 @@ const CountryInfo = ({ loading, data }) => {
 
   return data.countries.map((country) => (
     <div key={country.id}>
-      <h2>{country.__typename}</h2>
       <p>
         <b>Name: </b>
         {country.name}
