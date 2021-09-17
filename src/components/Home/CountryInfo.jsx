@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CountryInfo = ({ loading, data }) => {
-  if (!data || loading) return <h2>Loading..</h2>;
+  if (!data || loading) return <p>Loading country info</p>;
   if (data.countries.length === 0) return <p>No country found</p>;
 
   // Adds dots after 3 digits to better read the large population numbers
