@@ -18,6 +18,7 @@ export const COUNTRY_BY_CODE = gql`
         unitSymbols
       }
       languages {
+        id
         name
       }
     }
