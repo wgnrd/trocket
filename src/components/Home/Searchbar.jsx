@@ -8,6 +8,7 @@ const Searchbar = ({ onChange }) => {
   const placeHolderValue = 'e.g. RU';
 
   if (error) return <h1>Error..</h1>;
+
   if (loading)
     return <input disabled placeholder={placeHolderValue} value={''} />;
 
@@ -29,15 +30,25 @@ const Searchbar = ({ onChange }) => {
   };
 
   return (
-    <input
-      type="text"
-      name="searchbar"
-      id="sbAlphaCode"
-      placeholder={placeHolderValue}
-      maxLength="2"
-      value={value}
-      onChange={onSearchChange}
-    />
+    <React.Fragment>
+      <input
+        type="text"
+        name="searchbar"
+        id="sbAlphaCode"
+        placeholder={placeHolderValue}
+        maxLength="2"
+        value={value}
+        onChange={onSearchChange}
+        list="alphaCodes"
+      />
+
+      <datalist id="alphaCodes">
+        {data &&
+          data.countries.map((code) => (
+            <option value={code.alpha2Code} key={code.id} />
+          ))}
+      </datalist>
+    </React.Fragment>
   );
 };
 

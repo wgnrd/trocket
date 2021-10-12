@@ -25,6 +25,8 @@ export const COUNTRY_BY_CODE = gql`
   }
 `;
 
+// we query the country of the client and also get
+// all available alpha2Codes to facilitate the autocomplete
 export const CLIENT_COUNTRY_CODE = gql`
   query {
     client {
@@ -33,6 +35,10 @@ export const CLIENT_COUNTRY_CODE = gql`
           alpha2Code
         }
       }
+    }
+    countries {
+      id
+      alpha2Code
     }
   }
 `;
