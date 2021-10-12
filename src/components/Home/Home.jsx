@@ -8,6 +8,7 @@ function Home() {
   const [getCountryByCode, { data, loading }] = useLazyQuery(COUNTRY_BY_CODE);
 
   const onSearchChange = (searchInput) => {
+    // if the search is less then 2 characters, we can skip the query to the server
     if (searchInput.length < 2) return;
 
     getCountryByCode({

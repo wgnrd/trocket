@@ -8,7 +8,8 @@ const Searchbar = ({ onChange }) => {
   const placeHolderValue = 'e.g. RU';
 
   if (error) return <h1>Error..</h1>;
-  if (loading) return <input disabled placeholder={placeHolderValue} />;
+  if (loading)
+    return <input disabled placeholder={placeHolderValue} value={''} />;
 
   // if the value of input field is undefined, prefill it with the countrycode of the client,
   // this also triggers the first query of the country itself in another component
