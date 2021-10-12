@@ -18,20 +18,20 @@ const CountryInfo = ({ loading, data }) => {
       {formatInteger(country.population)}
       <br />
       <b>Continent: </b>
-      {country.continent.name}
+      {country.continent?.name}
       <br />
       <b>Capital City: </b>
-      {country.capital.name}
+      {country.capital?.name}
       <br />
       <b>Currency: </b>
       {country.currencies.map((currency) => (
-        <li>
+        <li key={currency.id}>
           {currency.name} | {currency.unitSymbols}
         </li>
       ))}
       <b>Language: </b>
       {country.languages.map((language) => (
-        <li>{language.name}</li>
+        <li key={language.id}>{language.name}</li>
       ))}
       <br />
     </div>
