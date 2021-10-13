@@ -1,0 +1,18 @@
+.searchbar {
+  margin: 1em 0 2em 0;
+  border: 2px solid #777ba6;
+  border-radius: 15px;
+  padding: 0.6em;
+  font-size: 1.1em;
+  color: #3d405b;
+  box-shadow: 0.1em 0.1em 0.2em 0.3em #9093b699;
+  transition: 0.5s;
+  outline: none;
+}
+
+.searchbar:active,
+:focus {
+  transition: 0.2s;
+  box-shadow: 0.1em 0.1em 0.2em 0.3em #9093b6bb;
+  border: 2px solid #494c6f;
+}
