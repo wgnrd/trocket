@@ -1,3 +1,5 @@
+import './Searchbar.css';
+
 import { useQuery } from '@apollo/client';
 import { CLIENT_COUNTRY_CODE } from '../../graphQl/Queries';
 import React, { useState } from 'react';
@@ -40,6 +42,7 @@ const Searchbar = ({ onChange }) => {
         value={value}
         onChange={onSearchChange}
         list="alphaCodes"
+        className="searchbar"
       />
 
       <datalist id="alphaCodes">

@@ -18,9 +18,16 @@ function App() {
   };
   return (
     <div>
-      <h1>GraphQL Country Client</h1>
-      <Searchbar onChange={onSearchChange} />
-      <CountryInfo data={data} loading={loading} />
+      <div className="searcharea">
+        <h1>Trocket</h1>
+        <div className="wrapper">
+          <p>Usless stuff about countries</p>
+          <Searchbar onChange={onSearchChange} />
+        </div>
+      </div>
+      <div className="wrapper">
+        <CountryInfo data={data} loading={loading} />
+      </div>
     </div>
   );
 }

@@ -1,8 +1,10 @@
+import './CountryInfo.css';
 import React from 'react';
 
 const CountryInfo = ({ loading, data }) => {
-  if (!data || loading) return <p>Loading country info</p>;
-  if (data.countries.length === 0) return <p>No country found</p>;
+  if (!data || loading) return <div className="loader"></div>;
+  if (data.countries.length === 0)
+    return <p className="notfound">No country found 🤔</p>;
 
   // Adds dots after 3 digits to better read the large population numbers
   const formatInteger = (number) => {
@@ -10,30 +12,38 @@ const CountryInfo = ({ loading, data }) => {
   };
 
   return data.countries.map((country) => (
-    <div key={country.id}>
-      <b>Name: </b>
-      {country.name}
-      <br />
-      <b>Population: </b>
-      {formatInteger(country.population)}
-      <br />
-      <b>Continent: </b>
-      {country.continent?.name}
-      <br />
-      <b>Capital City: </b>
-      {country.capital?.name}
-      <br />
-      <b>Currency: </b>
-      {country.currencies.map((currency) => (
-        <li key={currency.id}>
-          {currency.name} | {currency.unitSymbols}
-        </li>
-      ))}
-      <b>Language: </b>
-      {country.languages.map((language) => (
-        <li key={language.id}>{language.name}</li>
-      ))}
-      <br />
+    <div key={country.id} className="result">
+      <h2>{country.name}</h2>
+      <p>
+        <b>Population: </b>
+        <span>{formatInteger(country.population)}</span>
+      </p>
+      <p>
+        <b>Continent: </b>
+        <span>{country.continent?.name}</span>
+      </p>
+      <p>
+        <b>Capital City: </b>
+        <span>{country.capital?.name}</span>
+      </p>
+      <p>
+        <b>Currency: </b>
+        <ul className="result__list">
+          {country.currencies.map((currency) => (
+            <li key={currency.id}>
+              {currency.name} | {currency.unitSymbols}
+            </li>
+          ))}
+        </ul>
+      </p>
+      <p>
+        <b>Language: </b>
+        <ul className="result__list">
+          {country.languages.map((language) => (
+            <li key={language.id}>{language.name}</li>
+          ))}
+        </ul>
+      </p>
     </div>
   ));
 };
