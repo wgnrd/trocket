@@ -1,3 +1,3 @@
 # trocket
 
-A simple frontend consuming the Everbase API. This is just a small project to understand apollo in conjunction with react.
+A client querying the Everbase API using React and Apollo. You can search for any Alpha2Codes and get infos about the given Country.
